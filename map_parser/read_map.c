@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int count_rows(char *map_name)
+static int count_rows(char *map_name)
 {
     int ret;
     int fd;

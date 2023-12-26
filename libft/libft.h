@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:33:12 by yciftci           #+#    #+#             */
-/*   Updated: 2023/12/26 00:43:37 by yusuf            ###   ########.fr       */
+/*   Updated: 2023/12/26 13:31:02 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strrchr(const char *s, int c);
 char    *ft_merge_str(char **str, char seperator);
+int	    ft_strcmp(const char *s1, const char *s2);
 char	*ft_strchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *ptr, int c, size_t n);
