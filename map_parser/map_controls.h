@@ -18,4 +18,6 @@ int file_extension_check(char *map_name);
 char **read_map(char *map_name);
 void parse_map(t_map *map, char *map_name);
 unsigned int	get_color(char *rgb);
+int vertical_check(char **map, int *yx);
+char **copy_matrix(char **map)
 #endif
