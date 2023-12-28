@@ -121,6 +121,7 @@ void parse_map(t_map *map, char *map_name)
         j++;
         i++;
     }
+    map->map[j] = NULL;
     map->ceil_val = get_color(map->ceil);
     map->floor_val = get_color(map->floor);
 }

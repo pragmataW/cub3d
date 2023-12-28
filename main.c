@@ -12,8 +12,7 @@ int main(int argc, char **argv)
     else
     {
         map = malloc(sizeof(t_map) * 1);
-        parse_map(map, argv[1]);
-        int a[2] = {3, 5};
-        printf("%d\n", vertical_check(map->map, a));
+        parse_map(map, "maps/31.cub");
+        printf("%d\n", is_valid(map->map));
     }
 }

@@ -22,7 +22,9 @@ int *find_free_space(char **map)
                 map[i][j] = '2';
                 return ret;
             }
+            j++;
         }
+        i++;
     }
     free(ret);
     return (NULL);
@@ -62,30 +64,27 @@ int horizontal_check(char **map, int *yx)
 {
     int y;
     int x;
-    int row_len;
 
     y = yx[0];
     x = yx[1];
     while(map[y][x] != '\0')
     {
-        row_len = ft_strlen(map[y]);
-        if (x > row_len)
-            return (0);
+        if (map[y][x] == '\0' || map[y][x] == ' ')
+            return 0;
         if (map[y][x] == '1')
-            break;
-        y++;
+            break ;
+        x++;
     }
-    y = yx[0];
-    while (y >= 0)
+    x = yx[1];
+    while (x >= 0)
     {
-        row_len = ft_strlen(map[y]);
-        if (x > row_len)
-            return (0);
+        if ( x == 0 || map[y][x] == ' ')
+            return 0;
         if (map[y][x] == '1')
-            return (1);
-        y--;
+            return 1;
+            x--;
     }
-    return (0);
+    return (1);
 }
 
 int is_valid(char **map)

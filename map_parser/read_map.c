@@ -41,6 +41,7 @@ char **read_map(char *map_name)
         tmp = get_next_line(fd);
         i++;
     }
+    double_tmp[i] = NULL;
     tmp = ft_merge_str(double_tmp, '\n');
     ret = ft_split(tmp, '\n');
     double_free(double_tmp);
