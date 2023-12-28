@@ -20,7 +20,7 @@ char **copy_matrix(char **map)
     int i;
 
     len = map_y_len(map);
-    ret = malloc(sizeof(char *) * (len + 1));
+    ret = (char **)malloc(sizeof(char *) * (len + 1));
     i = 0;
     while (map[i] != NULL)
     {

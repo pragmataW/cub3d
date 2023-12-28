@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yciftci < yciftci@student.42kocaeli.com    +#+  +:+       +#+        */
+/*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 12:06:43 by yciftci           #+#    #+#             */
-/*   Updated: 2022/10/18 01:51:37 by yciftci          ###   ########.fr       */
+/*   Updated: 2023/12/28 13:11:25 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+char	*ft_strdup(char *str)
 {
 	char	*str2;
 	size_t	len;
@@ -24,5 +24,6 @@ char	*ft_strdup(const char *str)
 		return (NULL);
 	}
 	ft_memcpy(str2, str, len + 1);
+    str[len + 1] = '\0';
 	return (str2);
 }

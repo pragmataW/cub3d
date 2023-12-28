@@ -20,6 +20,7 @@ int *find_free_space(char **map)
                 ret[0] = i;
                 ret[1] = j;
                 map[i][j] = '2';
+                int i = 0;
                 return ret;
             }
             j++;
@@ -35,23 +36,30 @@ int vertical_check(char **map, int *yx)
     int y;
     int x;
     int row_len;
+    int flag;
 
     y = yx[0];
     x = yx[1];
+    flag = 1;
     while(map[y] != NULL)
     {
         row_len = ft_strlen(map[y]);
-        if (x > row_len  || map[y][x] == ' ' )
+        if (x > row_len  || map[y][x] == ' ')
             return (0);
         if (map[y][x] == '1')
+        {
+            flag = 0;
             break;
+        }
         y++;
     }
+    if (flag)
+        return (0);
     y = yx[0];
     while (y >= 0)
     {
         row_len = ft_strlen(map[y]);
-        if (x > row_len  || map[y][x] == ' ')
+        if (x > row_len || map[y][x] == ' ')
             return (0);
         if (map[y][x] == '1')
             return (1);
@@ -64,51 +72,69 @@ int horizontal_check(char **map, int *yx)
 {
     int y;
     int x;
+    int flag;
 
     y = yx[0];
     x = yx[1];
+    flag = 1;
     while(map[y][x] != '\0')
     {
         if (map[y][x] == '\0' || map[y][x] == ' ')
-            return 0;
+        {
+            return (0);
+        }
         if (map[y][x] == '1')
-            break ;
+        {
+            flag = 0;
+            break;
+        }
         x++;
     }
+    if (flag)
+        return (0);
     x = yx[1];
-    while (x >= 0)
+    while(x != -1)
     {
-        if ( x == 0 || map[y][x] == ' ')
-            return 0;
+        if ((x == 0 && map[y][x] == '0') || map[y][x] == ' ')
+            return (0);
         if (map[y][x] == '1')
-            return 1;
-            x--;
+            return (1);
+        x--;
     }
-    return (1);
+    return (0);
 }
 
 int is_valid(char **map)
 {
     int *yx;
+    int flag;
     char **tmp_map;
 
     yx = find_free_space(map);
     tmp_map = copy_matrix(map);
+    flag = 0;
     while(yx != NULL)
     {
-        if (vertical_check(map, yx) == 0)
-            return (0);
+        if (vertical_check(tmp_map, yx) == 0)
+        {
+            flag == 1;
+            free(yx);
+            break ;
+        }
         free(yx);
-        yx = find_free_space(map);
+        yx = find_free_space(tmp_map);
     }
     double_free(tmp_map);
+    if (flag)
+        return (0);
     tmp_map = copy_matrix(map);
+    yx = find_free_space(tmp_map);
     while(yx != NULL)
     {
-        if (horizontal_check(map, yx) == 0)
+        if (horizontal_check(tmp_map, yx) == 0)
             return (0);
         free(yx);
-        yx = find_free_space(map);
+        yx = find_free_space(tmp_map);
     }
     return (1);
 }

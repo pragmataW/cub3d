@@ -112,7 +112,7 @@ void parse_map(t_map *map, char *map_name)
     while(tmp_map && tmp_map[len])
         len++;
     len -= i;
-    map->map = malloc(sizeof(char *) * len);
+    map->map = malloc(sizeof(char *) * (len + 1));
     map->map[len - 1] = NULL;
     j = 0;
     while(tmp_map && tmp_map[i])

@@ -21,6 +21,7 @@ unsigned int	get_color(char *rgb);
 int vertical_check(char **map, int *yx);
 int horizontal_check(char **map, int *yx);
 char **copy_matrix(char **map);
+int map_y_len(char **map);
 int is_valid(char **map);
 
 #endif
