@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "cub3d.h"
+#include "src/cub3d.h"
 
 int main(int argc, char **argv)
 {
@@ -13,6 +13,6 @@ int main(int argc, char **argv)
     {
         map = malloc(sizeof(t_map) * 1);
         parse_map(map, "maps/31.cub");
-        printf("%d\n", is_valid(map->map));
+        printf("%d\n", is_passed(map->map));
     }
 }

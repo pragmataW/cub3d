@@ -1,4 +1,4 @@
-#include "../cub3d.h"
+#include "cub3d.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "../libft/libft.h"
@@ -87,7 +87,6 @@ static int	pair_map(t_map *map, char **full_map)
 		{
             double_free(tmp);
 			double_free(full_map);
-            //! Burada leak çıkabilir.
 			exit(printf("Error: invalid map format\n"));
 		}
 		if (tmp)

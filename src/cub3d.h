@@ -1,5 +1,5 @@
-#ifndef MAP_CONTROLS_H
-#define MAP_CONTROLS_H
+#ifndef CUB3D_H
+#define CUB3D_H
 
 typedef struct s_map
 {
@@ -22,6 +22,7 @@ int vertical_check(char **map, int *yx);
 int horizontal_check(char **map, int *yx);
 char **copy_matrix(char **map);
 int map_y_len(char **map);
-int is_valid(char **map);
+int is_passed(char **map);
+void double_free(char **str);
 
 #endif

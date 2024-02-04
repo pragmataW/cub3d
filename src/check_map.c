@@ -1,4 +1,4 @@
-#include "../cub3d.h"
+#include "cub3d.h"
 #include <stdio.h>
 #include "../libft/libft.h"
 
@@ -104,7 +104,7 @@ int horizontal_check(char **map, int *yx)
     return (0);
 }
 
-int is_valid(char **map)
+int is_passed(char **map)
 {
     int *yx;
     int flag;
@@ -117,7 +117,7 @@ int is_valid(char **map)
     {
         if (vertical_check(tmp_map, yx) == 0)
         {
-            flag == 1;
+            flag = 1;
             free(yx);
             break ;
         }
@@ -125,14 +125,17 @@ int is_valid(char **map)
         yx = find_free_space(tmp_map);
     }
     double_free(tmp_map);
-    if (flag)
+    if (flag == 1)
         return (0);
     tmp_map = copy_matrix(map);
     yx = find_free_space(tmp_map);
     while(yx != NULL)
     {
         if (horizontal_check(tmp_map, yx) == 0)
+        {
+            printf("horizontal check failed\n");
             return (0);
+        }
         free(yx);
         yx = find_free_space(tmp_map);
     }

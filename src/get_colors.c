@@ -1,4 +1,3 @@
-#include "map_controls.h"
 #include "../libft/libft.h"
 #include <stdlib.h>
 
