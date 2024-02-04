@@ -22,7 +22,8 @@ int vertical_check(char **map, int *yx);
 int horizontal_check(char **map, int *yx);
 char **copy_matrix(char **map);
 int map_y_len(char **map);
-int is_passed(char **map);
+void is_passed(char **map);
 void double_free(char **str);
+void char_control(char **map);
 
 #endif

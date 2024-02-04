@@ -20,7 +20,7 @@ int *find_free_space(char **map)
                 ret[0] = i;
                 ret[1] = j;
                 map[i][j] = '2';
-                int i = 0;
+                i = 0;
                 return ret;
             }
             j++;
@@ -104,7 +104,30 @@ int horizontal_check(char **map, int *yx)
     return (0);
 }
 
-int is_passed(char **map)
+void char_control(char **map)
+{
+    int i;
+    int j;
+    int row_len;
+
+    i = 0;
+    while(map[i] != NULL)
+    {
+        j = 0;
+        row_len = ft_strlen(map[i]);
+        while(j < row_len)
+        {
+            if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != ' ' && map[i][j] != 'N' && map[i][j] != 'S' && map[i][j] != 'W' && map[i][j] != 'E')
+            {
+                exit(printf("Error\nInvalid character in map\n"));
+            }
+            j++;
+        }
+        i++;
+    }
+} 
+
+void is_passed(char **map)
 {
     int *yx;
     int flag;
@@ -126,18 +149,14 @@ int is_passed(char **map)
     }
     double_free(tmp_map);
     if (flag == 1)
-        return (0);
+        exit(printf("Error\nVertical check failed\n"));
     tmp_map = copy_matrix(map);
     yx = find_free_space(tmp_map);
     while(yx != NULL)
     {
         if (horizontal_check(tmp_map, yx) == 0)
-        {
-            printf("horizontal check failed\n");
-            return (0);
-        }
+            exit(printf("Error\nHorizontal check failed\n"));
         free(yx);
         yx = find_free_space(tmp_map);
     }
-    return (1);
 }

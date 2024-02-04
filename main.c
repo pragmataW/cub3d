@@ -12,7 +12,8 @@ int main(int argc, char **argv)
     else
     {
         map = malloc(sizeof(t_map) * 1);
-        parse_map(map, "maps/31.cub");
-        printf("%d\n", is_passed(map->map));
+        parse_map(map, argv[1]);
+        char_control(map->map);
+        is_passed(map->map);
     }
 }
