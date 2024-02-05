@@ -1,6 +1,9 @@
 #ifndef CUB3D_H
 #define CUB3D_H
 
+#define WIDTH 1024
+#define HEIGHT 768
+
 typedef struct s_map
 {
     char **map;
@@ -14,6 +17,29 @@ typedef struct s_map
     int ceil_val;
 }              t_map;
 
+typedef struct s_img
+{
+    void *img;
+    int *addr;
+}               t_img;
+
+typedef struct s_game
+{
+    void *mlx;
+    void *win;
+    t_img *full_img;
+    t_img *no;
+    t_img *so;
+    t_img *we;
+    t_img *ea;
+    int floor;
+    int ceil;
+
+}               t_game;
+
+
+
+t_game *init(t_map *map);
 int file_extension_check(char *map_name);
 char **read_map(char *map_name);
 void parse_map(t_map *map, char *map_name);
