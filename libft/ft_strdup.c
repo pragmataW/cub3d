@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 12:06:43 by yciftci           #+#    #+#             */
-/*   Updated: 2023/12/28 13:11:25 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/03 15:55:17 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 char	*ft_strdup(char *str)
 {
-	char	*str2;
+	char	*s;
 	size_t	len;
+	int		i;
 
+	i = 0;
 	len = ft_strlen(str);
-	str2 = (char *)malloc(len + 1);
-	if (!(str2))
+	s = (char *)malloc(sizeof(char) * (len + 1));
+	if (!s)
+		return (0);
+	while (str[i] != '\0')
 	{
-		return (NULL);
+		s[i] = str[i];
+		i++;
 	}
-	ft_memcpy(str2, str, len + 1);
-    str[len + 1] = '\0';
-	return (str2);
+	s[i] = '\0';
+	return (s);
 }

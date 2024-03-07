@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/07 19:10:07 by yusuf             #+#    #+#             */
+/*   Updated: 2024/03/07 22:16:44 by yusuf            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -73,7 +85,6 @@ static int	check_and_get(t_map *map, char **regex)
 	return (1);
 }
 
-
 static int	pair_map(t_map *map, char **full_map)
 {
 	int		i;
@@ -85,7 +96,7 @@ static int	pair_map(t_map *map, char **full_map)
 		tmp = ft_split(full_map[i], ' ');
 		if (!check_and_get(map, tmp))
 		{
-            double_free(tmp);
+			double_free(tmp);
 			double_free(full_map);
 			exit(printf("Error: invalid map format\n"));
 		}
@@ -96,31 +107,31 @@ static int	pair_map(t_map *map, char **full_map)
 	return (i);
 }
 
-void parse_map(t_map *map, char *map_name)
+t_map	*parse_map(char *map_name)
 {
-    char **tmp_map;
-    int i;
-    int len;
-    int j;
+	t_map	*map;
+	char	**tmp_map;
+	int		i;
+	int		len;
+	int		j;
 
-    tmp_map = read_map(map_name);
-    if (!tmp_map)
-        exit(printf("Invalid map format\n"));
-    i = pair_map(map, tmp_map);
-    len = 0;
-    while(tmp_map && tmp_map[len])
-        len++;
-    len -= i;
-    map->map = malloc(sizeof(char *) * (len + 1));
-    map->map[len - 1] = NULL;
-    j = 0;
-    while(tmp_map && tmp_map[i])
-    {
-        map->map[j] = tmp_map[i];
-        j++;
-        i++;
-    }
-    map->map[j] = NULL;
-    map->ceil_val = get_color(map->ceil);
-    map->floor_val = get_color(map->floor);
+	map = malloc(sizeof(t_map) * 1);
+	tmp_map = read_map(map_name);
+	if (!tmp_map)
+		exit(printf("Invalid map format\n"));
+	i = pair_map(map, tmp_map);
+	len = 0;
+	while (tmp_map && tmp_map[len])
+		len++;
+	len -= i;
+	map->map = malloc(sizeof(char *) * (len + 1));
+	map->map[len - 1] = NULL;
+	j = 0;
+	while (tmp_map && tmp_map[i])
+		map->map[j++] = ft_strdup(tmp_map[i++]);
+	map->map[j] = NULL;
+	map->ceil_val = get_color(map->ceil);
+	map->floor_val = get_color(map->floor);
+	double_free(tmp_map);
+	return (map);
 }

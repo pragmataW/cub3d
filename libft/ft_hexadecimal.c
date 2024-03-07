@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hexadecimal.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yciftci <yciftci@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:24:59 by yciftci           #+#    #+#             */
-/*   Updated: 2022/12/15 23:28:41 by yciftci          ###   ########.fr       */
+/*   Updated: 2024/03/07 19:26:51 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 int	ft_putptr(unsigned long long nbr)
-{	
+{
 	int	chr;
 
 	chr = 2;
