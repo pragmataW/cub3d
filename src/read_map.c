@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:01 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 03:53:55 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 07:41:32 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static int	count_rows(char *map_name)
 		free(tmp);
 		tmp = get_next_line(fd);
 	}
+	close(fd);
 	return (ret);
 }
 
