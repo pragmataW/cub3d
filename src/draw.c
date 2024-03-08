@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yciftci <yciftci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:11:51 by fakman            #+#    #+#             */
-/*   Updated: 2024/03/08 06:40:08 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 12:36:03 by yciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	draw(t_game *g)
 	g->ray.wall_x = g->ray.wall_x - (int)g->ray.wall_x;
 }
 
+#include <stdio.h>
+
 void	draw2(t_game *g)
 {
 	g->tex.tex_x = (int)(g->ray.wall_x * (double)g->tex.text_w);
@@ -45,22 +47,22 @@ void	draw3(t_game *g, int x, int y)
 	{
 		g->tex.tex_y = (int)g->tex.text_pos;
 		if (y < g->tex.draw_start)
-			g->full_img->addr[y * WIDTH + x] = g->ceil;
+			g->full_img->addr[(y * WIDTH + x)] = g->ceil;
 		else if (y > g->tex.draw_end)
-			g->full_img->addr[y * WIDTH + x] = g->floor;
+			g->full_img->addr[(y * WIDTH + x)] = g->floor;
 		else
 		{
 			if (g->ray.side == 1 && g->ray.raydir_y < 0)
-				g->full_img->addr[y * WIDTH + x] = g->no->addr[g->tex.text_h
+				g->full_img->addr[(y * WIDTH + x)] = g->no->addr[g->tex.text_h
 					* g->tex.tex_y + g->tex.tex_x];
 			else if (g->ray.side == 1 && g->ray.raydir_y > 0)
-				g->full_img->addr[y * WIDTH + x] = g->so->addr[g->tex.text_h
+				g->full_img->addr[(y * WIDTH + x)] = g->so->addr[g->tex.text_h
 					* g->tex.tex_y + g->tex.tex_x];
 			if (g->ray.side == 0 && g->ray.raydir_x < 0)
-				g->full_img->addr[y * WIDTH + x] = g->we->addr[g->tex.text_h
+				g->full_img->addr[(y * WIDTH + x)] = g->we->addr[g->tex.text_h
 					* g->tex.tex_y + g->tex.tex_x];
 			else if (g->ray.side == 0 && g->ray.raydir_x > 0)
-				g->full_img->addr[y * WIDTH + x] = g->ea->addr[g->tex.text_h
+				g->full_img->addr[(y * WIDTH + x)] = g->ea->addr[g->tex.text_h
 					* g->tex.tex_y + g->tex.tex_x];
 			g->tex.text_pos += g->tex.step;
 		}

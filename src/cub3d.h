@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yciftci <yciftci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:24 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 03:42:43 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 12:40:20 by yciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,16 @@
 
 # define WIDTH 1024
 # define HEIGHT 768
-# define TEXTURE_W 128
-# define TEXTURE_H 128
+# define TEXTURE_W 64
+# define TEXTURE_H 64
 
-// LINUX
-# define W 119
-# define S 115
-# define A 97
-# define D 100
-# define ESC 65307
-# define LEFT 65361
-# define RIGHT 65363
-
-// MACOS
-// #define W 13
-// #define S 1
-// #define A 0
-// #define D 2
-// #define ESC 53
-// #define LEFT 123
-// #define RIGHT 124
+# define W 13
+# define S 1
+# define A 0
+# define D 2
+# define ESC 53
+# define LEFT 123
+# define RIGHT 124
 
 typedef struct s_map
 {

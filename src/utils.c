@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yciftci <yciftci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:09:55 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 03:54:18 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 13:03:21 by yciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ void	free_game(t_game *game)
 	free(game->we);
 	free(game->ea);
 	free(game->full_img);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
 	free(game);
 }
 

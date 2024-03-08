@@ -14,7 +14,7 @@ $(NAME): $(SRC)
 	make -C mlx
 	cp ./mlx/libmlx.a .
 	cp ./libft/libft.a .
-	$(FLAGS) $(SRC) -o $(NAME) ./libmlx.a ./libft.a -lXext -lX11 -lm 
+	$(FLAGS) $(SRC) -o $(NAME) ./libmlx.a ./libft.a -framework OpenGL -framework AppKit
 
 clean: 
 	$(RM) $(NAME)
