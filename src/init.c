@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:13 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/07 22:27:46 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:00:07 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,17 @@ static void	init_texture(t_game *g)
 	g->tex.tex_y = 0;
 	g->tex.text_w = TEXTURE_W;
 	g->tex.text_h = TEXTURE_H;
+}
+
+void	init_t_map(t_map *map)
+{
+	map->map = NULL;
+	map->north = NULL;
+	map->south = NULL;
+	map->west = NULL;
+	map->east = NULL;
+	map->floor = NULL;
+	map->ceil = NULL;
 }
 
 static void	init_ray(t_game *g)
@@ -78,6 +89,7 @@ static t_game	*init2(t_game *game, t_map *map)
 	game->rot_speed = 0.02f;
 	init_texture(game);
 	init_ray(game);
+	game->map = map;
 	return (game);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:01 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/07 21:27:56 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 02:03:55 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ char	**read_map(char *map_name)
 
 	fd = open(map_name, O_RDONLY);
 	i = 0;
-	double_tmp = malloc(sizeof(char *) * (count_rows(map_name) + 1));
 	tmp = get_next_line(fd);
 	if (tmp == NULL)
-		return (NULL);
+		exit(printf("Invalid map format\n"));
+	double_tmp = malloc(sizeof(char *) * (count_rows(map_name) + 1));
 	while (tmp != NULL)
 	{
 		double_tmp[i] = tmp;

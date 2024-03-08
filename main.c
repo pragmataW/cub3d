@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:09:33 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/07 21:05:21 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 02:49:32 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,15 @@ int	main(int argc, char **argv)
 	else
 	{
 		map = parse_map(argv[1]);
-		char_control(map->map);
-		is_passed(map->map);
+		char_control(map);
+		if (player_counter(map) == 0)
+		{
+			free_t_map(map);
+			exit(printf("Error\nWrong player count\n"));
+		}
+		is_passed(map);
 		game = init(map);
-		game->map = map;
-		find_player(game, map);
+		find_player(game, map, 0, 0);
 		mlx_hook(game->win, 2, 1L << 0, press, game);
 		mlx_hook(game->win, 3, 1L << 1, release, game);
 		mlx_hook(game->win, 17, 0, close_game_by_window, game);

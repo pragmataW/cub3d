@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:24 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/07 21:55:43 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 02:57:18 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,30 +117,35 @@ typedef struct s_game
 	t_ray		ray;
 }	t_game;
 
-t_game			*init(t_map *map);
-int				file_extension_check(char *map_name);
-char			**read_map(char *map_name);
-t_map			*parse_map(char *map_name);
-unsigned int	get_color(char *rgb);
-int				vertical_check(char **map, int *yx);
-int				horizontal_check(char **map, int *yx);
-char			**copy_matrix(char **map);
-int				map_y_len(char **map);
-void			is_passed(char **map);
-void			double_free(char **str);
-void			char_control(char **map);
-int				release(int key_code, t_game *g);
-int				press(int key_code, t_game *g);
-int				close_game_by_window(void *game);
-void			find_player(t_game *g, t_map *m);
-void			raycast(t_game *g, t_map *map);
-int				start_game(t_game *g);
-void			move_forward_backward(t_game *g);
-void			move_left_right(t_game *g);
-void			rotate_right(t_game *g);
-void			rotate_left(t_game *g);
-void			draw(t_game *g);
-void			draw2(t_game *g);
-void			draw3(t_game *g, int x, int y);
-void			free_game(t_game *g);
+t_game	*init(t_map *map);
+int		file_extension_check(char *map_name);
+char	**read_map(char *map_name);
+t_map	*parse_map(char *map_name);
+int		get_color(char *rgb);
+int		vertical_check(char **map, int *yx, int y, int x);
+int		horizontal_check(char **map, int *yx, int y, int x);
+char	**copy_matrix(char **map);
+int		map_y_len(char **map);
+void	is_passed(t_map *map);
+void	double_free(char **str);
+void	char_control(t_map *map);
+int		release(int key_code, t_game *g);
+int		press(int key_code, t_game *g);
+int		close_game_by_window(void *game);
+void	find_player(t_game *g, t_map *m, int i, int j);
+void	raycast(t_game *g, t_map *map);
+int		start_game(t_game *g);
+void	move_forward_backward(t_game *g);
+void	move_left_right(t_game *g);
+void	rotate_right(t_game *g);
+void	rotate_left(t_game *g);
+void	draw(t_game *g);
+void	draw2(t_game *g);
+void	draw3(t_game *g, int x, int y);
+void	is_passed2(t_map *map, char **tmp_map, int *yx);
+int		*find_free_space(char **map, int i, int j);
+void	free_t_map(t_map *map);
+void	init_t_map(t_map *map);
+int		player_counter(t_map *map);
+void	free_game(t_game *game);
 #endif

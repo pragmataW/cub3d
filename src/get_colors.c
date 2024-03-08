@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:15 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/07 22:28:33 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 01:04:37 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static void	comma_count(char *rgb)
+static int	comma_count(char *rgb)
 {
 	int	i;
 	int	count;
@@ -29,10 +29,11 @@ static void	comma_count(char *rgb)
 		i++;
 	}
 	if (count != 2)
-		exit(printf("Error\nInvalid color format\n"));
+		return (0);
+	return (1);
 }
 
-static void	check_digit(char *rgb)
+static int	check_digit(char *rgb)
 {
 	int	i;
 
@@ -40,45 +41,54 @@ static void	check_digit(char *rgb)
 	while (rgb[i] != '\0')
 	{
 		if (!ft_isdigit(rgb[i]) && rgb[i] != ',')
-			exit(printf("Error\nInvalid color format\n"));
+			return (0);
 		i++;
 	}
+	return (1);
 }
 
-static void	check_range(char *rgb)
+static int	check_range(char *rgb)
 {
 	char	**tmp;
 	int		i;
 
 	tmp = ft_split(rgb, ',');
 	if (!tmp)
-		exit(printf("Error\nInvalid color format\n"));
+		return (0);
 	i = 0;
 	while (tmp[i] != NULL)
 	{
 		if (ft_atoi(tmp[i]) < 0 || ft_atoi(tmp[i]) > 255)
 		{
 			double_free(tmp);
-			exit(printf("Error\nInvalid color range\n"));
+			return (0);
 		}
 		i++;
 	}
 	if (i != 3)
 	{
 		double_free(tmp);
-		exit(printf("Error\nInvalid color format\n"));
+		return (0);
 	}
 	double_free(tmp);
+	return (1);
 }
 
-unsigned int	get_color(char *rgb)
+int	get_color(char *rgb)
 {
 	char			**tmp;
 	unsigned int	ret;
+	int				flag;
 
-	check_digit(rgb);
-	comma_count(rgb);
-	check_range(rgb);
+	flag = check_digit(rgb);
+	if (!flag)
+		return (-1);
+	flag = comma_count(rgb);
+	if (!flag)
+		return (-1);
+	flag = check_range(rgb);
+	if (!flag)
+		return (-1);
 	tmp = ft_split(rgb, ',');
 	ret = (ft_atoi(tmp[0]) * 256 * 256)
 		+ (ft_atoi(tmp[1]) * 256) + (ft_atoi(tmp[2]));

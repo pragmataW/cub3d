@@ -6,11 +6,12 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:30 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/07 19:10:31 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 00:50:35 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
+#include "cub3d.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -40,4 +41,23 @@ char	**copy_matrix(char **map)
 	}
 	ret[i] = NULL;
 	return (ret);
+}
+
+void	is_passed2(t_map *map, char **tmp_map, int *yx)
+{
+	tmp_map = copy_matrix(map->map);
+	yx = find_free_space(tmp_map, 0, 0);
+	while (yx != NULL)
+	{
+		if (horizontal_check(tmp_map, yx, yx[0], yx[1]) == 0)
+		{
+			free(yx);
+			double_free(tmp_map);
+			free_t_map(map);
+			exit(printf("Error\nHorizontal check failed\n"));
+		}
+		free(yx);
+		yx = find_free_space(tmp_map, 0, 0);
+	}
+	double_free(tmp_map);
 }

@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:10 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/07 22:28:58 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:00:40 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	press(int key_code, t_game *g)
 {
 	if (key_code == ESC)
 	{
+		free_t_map(g->map);
+		free_game(g);
 		printf("Bye!\n");
 		exit(0);
 	}
@@ -56,7 +58,8 @@ int	release(int key_code, t_game *g)
 
 int	close_game_by_window(void *game)
 {
-	(void)game;
 	printf("Bye!\n");
+	free_t_map(((t_game *)game)->map);
+	free_game((t_game *)game);
 	exit(0);
 }

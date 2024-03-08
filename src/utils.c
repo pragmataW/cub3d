@@ -6,12 +6,13 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:09:55 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/07 22:29:32 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:25:28 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "cub3d.h"
+#include "../mlx/mlx.h"
 
 void	double_free(char **str)
 {
@@ -28,30 +29,71 @@ void	double_free(char **str)
 	free(str);
 }
 
-void	free_game(t_game *g)
+void	free_t_map(t_map *map)
 {
-	if (g->map->map)
-		double_free(g->map->map);
-	if (g->map->north)
-		free(g->map->north);
-	if (g->map->south)
-		free(g->map->south);
-	if (g->map->west)
-		free(g->map->west);
-	if (g->map->east)
-		free(g->map->east);
-	if (g->map->floor)
-		free(g->map->floor);
-	if (g->map->ceil)
-		free(g->map->ceil);
+	if (map->map)
+		double_free(map->map);
+	if (map->north)
+		free(map->north);
+	if (map->south)
+		free(map->south);
+	if (map->west)
+		free(map->west);
+	if (map->east)
+		free(map->east);
+	if (map->floor)
+		free(map->floor);
+	if (map->ceil)
+		free(map->ceil);
+	if (map)
+		free(map);
 }
 
-void	find_player(t_game *g, t_map *m)
+void	free_game(t_game *game)
 {
-	int	i;
-	int	j;
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_image(game->mlx, game->no->img);
+	mlx_destroy_image(game->mlx, game->so->img);
+	mlx_destroy_image(game->mlx, game->we->img);
+	mlx_destroy_image(game->mlx, game->ea->img);
+	mlx_destroy_image(game->mlx, game->full_img->img);
+	free(game->no);
+	free(game->so);
+	free(game->we);
+	free(game->ea);	
+	free(game->full_img);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	free(game);
+}
 
-	i = 0;
+static void	find_player_extra(t_game *g, t_map *m, int i, int j)
+{
+	if (m->map[i][j] == 'S')
+	{
+		g->ray.dir_x = 0;
+		g->ray.dir_y = 1;
+		g->ray.plane_x = -0.66;
+		g->ray.plane_y = 0;
+	}
+	if (m->map[i][j] == 'W')
+	{
+		g->ray.dir_x = -1;
+		g->ray.dir_y = 0;
+		g->ray.plane_x = 0;
+		g->ray.plane_y = -0.66;
+	}
+	if (m->map[i][j] == 'E')
+	{
+		g->ray.dir_x = 1;
+		g->ray.dir_y = 0;
+		g->ray.plane_x = 0;
+		g->ray.plane_y = 0.66;
+	}
+}
+
+void	find_player(t_game *g, t_map *m, int i, int j)
+{
 	while (m->map[i])
 	{
 		j = 0;
@@ -71,27 +113,7 @@ void	find_player(t_game *g, t_map *m)
 					g->ray.plane_x = 0.66;
 					g->ray.plane_y = 0;
 				}
-				if (m->map[i][j] == 'S')
-				{
-					g->ray.dir_x = 0;
-					g->ray.dir_y = 1;
-					g->ray.plane_x = -0.66;
-					g->ray.plane_y = 0;
-				}
-				if (m->map[i][j] == 'W')
-				{
-					g->ray.dir_x = -1;
-					g->ray.dir_y = 0;
-					g->ray.plane_x = 0;
-					g->ray.plane_y = -0.66;
-				}
-				if (m->map[i][j] == 'E')
-				{
-					g->ray.dir_x = 1;
-					g->ray.dir_y = 0;
-					g->ray.plane_x = 0;
-					g->ray.plane_y = 0.66;
-				}
+				find_player_extra(g, m, i, j);
 			}
 			j++;
 		}
