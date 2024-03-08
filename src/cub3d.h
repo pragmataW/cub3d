@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:24 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 02:57:18 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:42:43 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,4 +148,5 @@ void	free_t_map(t_map *map);
 void	init_t_map(t_map *map);
 int		player_counter(t_map *map);
 void	free_game(t_game *game);
+void	parse_map_extra(char **tmp_map, t_map *map, int i);
 #endif

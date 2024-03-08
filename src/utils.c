@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:09:55 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 03:25:28 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:27:09 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	free_game(t_game *game)
 	free(game->no);
 	free(game->so);
 	free(game->we);
-	free(game->ea);	
+	free(game->ea);
 	free(game->full_img);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);

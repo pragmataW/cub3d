@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 02:40:43 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 02:48:20 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:27:59 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	player_counter(t_map *map)
 	int	player_counter;
 	int	i;
 	int	j;
-
 
 	player_counter = 0;
 	i = 0;
