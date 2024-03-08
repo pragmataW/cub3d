@@ -1,7 +1,7 @@
 NAME = cub3d
 
-SRC = main.c src/check_map_utils.c src/check_map.c src/utils.c src/file_extension_check.c \
-      src/get_colors.c src/parse_map.c src/read_map.c src/init.c src/key.c
+SRC = main.c src/char_checker.c src/check_map_utils.c src/check_map.c src/direction.c src/draw.c src/file_extension_check.c \
+	src/get_colors.c src/init.c src/key.c src/parse_map_utils.c src/parse_map.c src/ray_cast.c src/read_map.c src/utils.c
 
 FLAGS = gcc -Wall -Wextra -Werror
 

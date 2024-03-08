@@ -6,7 +6,7 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:09:33 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 03:55:28 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 07:07:02 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,20 @@ int	start_game(t_game *g)
 	return (0);
 }
 
+void	main_controls(t_map *map, char *map_name)
+{
+	if (player_counter(map) == 0)
+	{
+		free_t_map(map);
+		exit(printf("Error\nWrong player count\n"));
+	}
+	if (file_extension_check(map_name) == 0)
+	{
+		free_t_map(map);
+		exit(printf("Error\nWrong file extension\n"));
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	*game;
@@ -36,11 +50,7 @@ int	main(int argc, char **argv)
 	{
 		map = parse_map(argv[1]);
 		char_control(map);
-		if (player_counter(map) == 0)
-		{
-			free_t_map(map);
-			exit(printf("Error\nWrong player count\n"));
-		}
+		main_controls(map, argv[1]);
 		is_passed(map);
 		game = init(map);
 		find_player(game, map, 0, 0);
