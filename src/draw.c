@@ -6,7 +6,7 @@
 /*   By: yciftci <yciftci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:11:51 by fakman            #+#    #+#             */
-/*   Updated: 2024/03/08 12:36:03 by yciftci          ###   ########.fr       */
+/*   Updated: 2024/03/08 13:14:34 by yciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	draw(t_game *g)
 		g->ray.wall_x = g->ray.pos_x + g->ray.perp_wall_dist * g->ray.raydir_x;
 	g->ray.wall_x = g->ray.wall_x - (int)g->ray.wall_x;
 }
-
-#include <stdio.h>
 
 void	draw2(t_game *g)
 {

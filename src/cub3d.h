@@ -6,15 +6,15 @@
 /*   By: yciftci <yciftci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:24 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 12:40:20 by yciftci          ###   ########.fr       */
+/*   Updated: 2024/03/08 13:18:26 by yciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# define WIDTH 1024
-# define HEIGHT 768
+# define WIDTH 40
+# define HEIGHT 40
 # define TEXTURE_W 64
 # define TEXTURE_H 64
 

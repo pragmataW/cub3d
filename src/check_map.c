@@ -6,7 +6,7 @@
 /*   By: yciftci <yciftci@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:27 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 12:56:56 by yciftci          ###   ########.fr       */
+/*   Updated: 2024/03/08 13:14:11 by yciftci          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void	char_control(t_map *map)
 				&& map->map[i][j] != 'W' && map->map[i][j] != 'E')
 			{
 				free_t_map(map);
-                system("leaks cub3D");
 				exit(printf("Error\nInvalid character in map\n"));
 			}
 			j++;
