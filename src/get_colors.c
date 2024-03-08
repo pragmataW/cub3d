@@ -6,14 +6,12 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:15 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 01:04:37 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:50:12 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "cub3d.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 static int	comma_count(char *rgb)
 {

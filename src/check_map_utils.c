@@ -6,13 +6,12 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:30 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 00:50:35 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:55:56 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "cub3d.h"
-#include <stdlib.h>
 #include <stdio.h>
 
 int	map_y_len(char **map)

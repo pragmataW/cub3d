@@ -6,13 +6,12 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:07 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 03:41:20 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:53:13 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include "../libft/libft.h"
 
 static int	is_valid1(char *str)

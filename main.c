@@ -6,16 +6,14 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:09:33 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 02:49:32 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:55:28 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "src/cub3d.h"
 #include "mlx/mlx.h"
-#include "libft/libft.h"
+#include <stdlib.h>
 
 int	start_game(t_game *g)
 {

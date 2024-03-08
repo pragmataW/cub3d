@@ -6,13 +6,13 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 03:43:50 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 03:43:51 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:55:56 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "../libft/libft.h"
 
 void	parse_map_extra(char **tmp_map, t_map *map, int i)

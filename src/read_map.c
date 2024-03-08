@@ -6,13 +6,12 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:01 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 02:03:55 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:53:55 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "../libft/libft.h"
-#include <stdlib.h>
 #include <stdio.h>
 
 static int	count_rows(char *map_name)

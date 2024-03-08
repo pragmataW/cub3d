@@ -6,14 +6,13 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:10:10 by yusuf             #+#    #+#             */
-/*   Updated: 2024/03/08 03:00:40 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:51:08 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <stddef.h>
 
 int	press(int key_code, t_game *g)
 {

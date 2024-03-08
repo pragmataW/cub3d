@@ -6,13 +6,11 @@
 /*   By: yusuf <yusuf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:11:51 by fakman            #+#    #+#             */
-/*   Updated: 2024/03/07 19:26:53 by yusuf            ###   ########.fr       */
+/*   Updated: 2024/03/08 03:48:42 by yusuf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "../mlx/mlx.h"
-#include <math.h>
 
 void	draw(t_game *g)
 {
